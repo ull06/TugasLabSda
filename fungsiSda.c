@@ -1,3 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
+#include "header.h"
+
+
+// fungsi untuk inisialisasi queueu
+void initQueue(Queue *queue){
+    queue->front = NULL;
+    queue->rear = NULL;
+    queue->size = 0;
+}
+
+// fungsi untuk mengcek apakah queue kosong
+bool isEmpty(Queue *queue){
+    return queue->front == NULL;
+}
+
+// fungsi untuk inisialisasi stack
+void initStack(Stack *stack){
+    stack->top = NULL;
+    stack->size = 0;
+}
+
+// fungsi untuk mengecek apakah stack kosong
+int isEmptyStack(Stack *stack){
+    return stack->top == NULL;
+}
+
+// Fungsi untuk menomori ulang seluruh antrean
+void renumberQueue(Queue *queue){
+    Node *current = queue->front;
+    int newNum = 1;
+    while (current != NULL){
+        current->No = newNum++;
+        current = current->next;
+    }
+}
+
 //fungsi untuk memasukkan nasabah dalam antrean
 bool inQueue(Queue *queue, const char *Nama, const char *Layanan){
 
