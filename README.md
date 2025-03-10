@@ -37,3 +37,24 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
    - Jika tidak ada nasabah yang telah dilayani, sistem akan menampilkan pesan **"Riwayat kosong"**.
 
 ---
+
+### 🛠️ Fitur Utama:
+
+1️⃣ **Menambahkan Nasabah ke Antrean** 📥  
+   - Nasabah dapat mendaftar dengan nama dan memilih jenis layanan (Setor Tunai, Tarik Tunai, Pembukaan Rekening).  
+   
+2️⃣ **Memproses Nasabah** 🔄  
+   - Nasabah yang berada di antrean paling depan akan diproses dan dipindahkan ke **riwayat layanan**.  
+
+3️⃣ **Menampilkan Antrean Saat Ini** 📋  
+   - Menampilkan daftar nasabah yang masih dalam antrean.  
+
+4️⃣ **Menampilkan Riwayat Layanan** 📜  
+   - Menampilkan daftar nasabah yang sudah dilayani.  
+
+5️⃣ **Batalkan Transaksi Terakhir (Undo)** ⏪  
+   - Mengembalikan nasabah yang sudah diproses ke antrean.  
+
+6️⃣ **Keluar dari Program** ❌  
+
+---
