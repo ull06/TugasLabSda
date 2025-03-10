@@ -1,21 +1,44 @@
+//fungsi untuk memasukkan nasabah dalam antrean
+bool inQueue(Queue *queue, const char *Nama, const char *Layanan){
 
+    //Mengalokasikan memori untuk node baru
+    Node *newNode = (Node *)malloc(sizeof(Node));
+    if (newNode == NULL){
+        printf("Error: gagal mengalokasikan memori!\n");
+        return false;
+    }
+    
+    // alokasi memori untuk nama nasabah dan layanan
+    newNode->Nama = (char *)malloc(strlen(Nama) + 1);
+    newNode->Layanan = (char *)malloc(strlen(Layanan) + 1);
 
+    if (newNode->Nama == NULL || newNode->Layanan == NULL){
+        printf("Error: gagal mengalokasikan memori!\n");
+        if (newNode)
+            free(newNode->Nama);
+        if (newNode)
+            free(newNode->Layanan);
+        free(newNode);
+        return false;
+    }
+    //menyalin data ke string
+    strcpy(newNode->Nama, Nama);
+    strcpy(newNode->Layanan, Layanan);
 
+    // set no antrean berdasarkan ukuran queue
+    newNode->No = (queue->rear == NULL) ? 1 : queue->rear->No + 1; // Nomor antrean tetap berlanjut
+    newNode->next = NULL;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // tambahkan ke node antrean
+    if (isEmpty(queue)){
+        queue->front = queue->rear = newNode;
+    }else{
+        queue->rear->next = newNode;
+        queue->rear = newNode;
+    }
+    queue->size++; // ukuran antrean bertambah
+    return true;
+}
 
 // fungsi untuk menghapus nasabah dari transaksi
 void undoTransaksi(Queue *queue, Stack *stack){
