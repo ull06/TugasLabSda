@@ -1,4 +1,41 @@
+# 📚 Tugas Kelompok Praktikum Struktur Data dan Algoritma 📚
+## Sistem Antrean Bank 💰 
+---
 
+### Anggota Kelompok 4:
+| Nama                   | NPM           |
+|------------------------|---------------|
+| Hazairin               | 2408107010001 |
+| Nayla Nabila Syahel    | 2408107010005 |
+| Raisa Salsa Nabila     | 2408107010007 |
+| Rahmatul Uliya         | 2408107010012 |
+| Dara Ramadhani         | 2408107010028 |
+| Habib Nuran Mulkan     | 2408107010109 |
+
+---
+
+### 🗒 Deskripsi Singkat Program:
+
+Program ini adalah sitem manajemen antrean nasabah di bank yang menggunakan queue berbasis linked list untuk mengelola antrean layanan, serta stack berbasis linked list untuk menyimpan riwayat transaksi nasabah yang telah di proses.
+
+---
+### 📌 Instruksi Kompilasi dan Cara Menjalankan Program:
+
+Program ini menggunakan *Makefile* untuk mempermudah proses kompilasi dan eksekusi.
+
+- Jalankan perintah berikut di terminal:  
+  sh
+  make
+  
+  📌 Perintah ini akan mengompilasi semua file sumber dan menghasilkan file eksekusi mainSda.
+
+- Setelah berhasil dikompilasi, jalankan program dengan:  
+  sh
+  ./mainSda
+  
+  📌 Pastikan file mainSda telah dibuat sebelum menjalankan perintah ini.
+  
+---
 
 
 
