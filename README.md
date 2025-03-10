@@ -93,6 +93,7 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
    - Nasabah pertama yang diproses akan ditampilkan lebih dahulu.
    - Jika tidak ada nasabah yang telah dilayani, sistem akan menampilkan pesan **"Riwayat kosong"**.
 
+---
 
 ### 🔍 Kendala dan Solusi dalam Program Antrean Bank:
 
