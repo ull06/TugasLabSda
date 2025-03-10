@@ -149,6 +149,63 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
       Saat nasabah diproses (deQueue), datanya dipindahkan ke stack. Jika undo dilakukan, data diambil dari stack dan dikembalikan ke antrean.
 
      ./mainSda
+
+➎ Penanganan Kesalahan dan Stabilitas Program
+
+   - 💡 *Masalah:*
+     
+      Program bisa mengalami gagal alokasi memori saat malloc tidak berhasil.
+      Operasi yang tidak valid, seperti menghapus antrean kosong, bisa menyebabkan error.
+     
+   - ✅ *Solusi:*
+     
+      Cek hasil alokasi memori (malloc/strdup). Jika gagal, tampilkan pesan error agar pengguna tahu ada masalah.
+      Cegah error kritis dengan:
+     
+      🔹 Menampilkan peringatan "Antrean kosong!" saat pengguna mencoba menghapus antrean yang sudah habis.
+     
+      🔹 Memeriksa kondisi isEmpty() sebelum melakukan operasi yang membutuhkan data, seperti menghapus antrean atau mengambil data dari stack.
+
+ ➏ Validasi Input
+
+   - 💡 *Masalah:*
+     
+      Input nama nasabah harus hanya berisi huruf dan spasi.
+      Kesalahan input pada pilihan menu, seperti memasukkan huruf atau simbol yang tidak valid.
+     
+   - ✅ *Solusi:*
+     
+      Untuk mengatasi masalah ini, program menerapkan fungsi validasi khusus:
+     
+      o isValidName: Memeriksa nama hanya berisi huruf dan spasi menggunakan isalpha.
+     
+      o isValidNumber: Memastikan input angka menggunakan isdigit.
+     
+      o Membersihkan buffer input setelah memasukkan data agar tidak terjadi kesalahan saat membaca input berikutnya.
+
+ ➐ Format Antarmuka Pengguna
+
+   - 💡 *Masalah:*
+     
+      Menampilkan data antrean dan riwayat dalam format tabel yang rapi.
+     
+   - ✅ *Solusi:*
+     
+      Gunakan format printf dengan spesifikasi seperti %-4d (untuk nomor) dan %-50s (untuk nama) untuk merapikan kolom.
+      Tambahkan garis pemisah (contoh: ===================) untuk kejelasan visual.
+ 
+ ➑ Kendala dalam Efisiensi Kompilasi dan Eksekusi
+ 
+   - 💡 *Masalah:*
+     
+      Setiap kali ingin menjalankan program, pengguna harus mengetik perintah kompilasi yang panjang secara manual.
+     
+   - ✅ *Solusi:*
+     
+     Menggunakan Makefile untuk mempermudah kompilasi hanya dengan menjalankan perintah make, lalu menjalankan program dengan
+     sh
+     ./mainSda
+     
 ---
 
 ### 🛠️ Fitur Utama:
