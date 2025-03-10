@@ -22,17 +22,19 @@ Program ini adalah sitem manajemen antrean nasabah di bank yang menggunakan queu
 
 ### 📌 Instruksi Kompilasi dan Cara Menjalankan Program:
 
-Program ini menggunakan *Makefile* untuk mempermudah proses kompilasi dan eksekusi.
+Program ini menggunakan **Makefile** untuk mempermudah proses kompilasi dan eksekusi.
 
 - Jalankan perintah berikut di terminal:  
-  sh
+  ```sh
   make
+  ```
   
   📌 Perintah ini akan mengompilasi semua file sumber dan menghasilkan file eksekusi mainSda.
 
 - Setelah berhasil dikompilasi, jalankan program dengan:  
-  sh
+  ```sh
   ./mainSda
+  ```
   
   📌 Pastikan file mainSda telah dibuat sebelum menjalankan perintah ini.
   
@@ -40,25 +42,25 @@ Program ini menggunakan *Makefile* untuk mempermudah proses kompilasi dan ekseku
 
 ### 🏦 Struktur Data yang Digunakan untuk Membangun Program Antrean Bank:
 
-🔹 *Queue berbasis Linked List* 🔗
-   - Program ini menggunakan *Queue berbasis Linked List* untuk menyimpan data antrean nasabah yang sedang menunggu untuk diproses.
-   - Queue mengikuti prinsip *FIFO (First In, First Out)*, sehingga nasabah yang pertama masuk akan diproses lebih dahulu.
+🔹 **Queue berbasis Linked List** 🔗
+   - Program ini menggunakan **Queue berbasis Linked List** untuk menyimpan data antrean nasabah yang sedang menunggu untuk diproses.
+   - Queue mengikuti prinsip **FIFO (First In, First Out)**, sehingga nasabah yang pertama masuk akan diproses lebih dahulu.
 
-🔹 *Stack berbasis Linked List* 🔗
-   - Selain antrean, program ini juga menggunakan *Stack berbasis Linked List* untuk menyimpan transaksi nasabah yang telah diproses.
-   - Stack mengikuti prinsip *LIFO (Last In, First Out)*, sehingga transaksi terakhir yang diproses akan berada di bagian atas dan bisa dibatalkan jika diperlukan.
+🔹 **Stack berbasis Linked List** 🔗
+   - Selain antrean, program ini juga menggunakan **Stack berbasis Linked List** untuk menyimpan transaksi nasabah yang telah diproses.
+   - Stack mengikuti prinsip **LIFO (Last In, First Out)**, sehingga transaksi terakhir yang diproses akan berada di bagian atas dan bisa dibatalkan jika diperlukan.
   
 ---
 
 ### 🤔 Alasan Pemilihan Struktur Data:
 
-Queue dan Stack diimplementasikan menggunakan *Linked List* karena:
+Queue dan Stack diimplementasikan menggunakan **Linked List** karena:
 
-✅ *Fleksibel* – Tidak memiliki batasan ukuran seperti array, cocok untuk antrean yang jumlahnya tidak dapat diprediksi.  
-✅ *Efisien dalam penambahan & penghapusan* – Operasi enqueue, dequeue, push, dan pop dapat dilakukan dalam *O(1)* waktu tanpa perlu menggeser elemen seperti pada array.  
-✅ *Cocok untuk sistem antrean bank* – Karena jumlah nasabah yang antre bisa terus bertambah atau berkurang, sehingga penggunaan memori lebih efisien.  
+✅ **Fleksibel** – Tidak memiliki batasan ukuran seperti array, cocok untuk antrean yang jumlahnya tidak dapat diprediksi.  
+✅ **Efisien dalam penambahan & penghapusan** – Operasi enqueue, dequeue, push, dan pop dapat dilakukan dalam **O(1)** waktu tanpa perlu menggeser elemen seperti pada array.  
+✅ **Cocok untuk sistem antrean bank** – Karena jumlah nasabah yang antre bisa terus bertambah atau berkurang, sehingga penggunaan memori lebih efisien.  
 
-Struktur data *Stack* dan *Queue* dipilih untuk diimplementasikan menggunakan *Linked List, sebab ukuran Linked List tidak terbatas selama memori masih tersedia. Hal ini sesuai dengan konsep antrean bank, karena banyaknya antrean dalam bank tidak dapat ditentukan. Sehingga akan sangat tidak efisien jika diimplementasikan menggunakan array. Oleh karena itu, **Linked List menjadi solusi yang sangat cocok dalam program ini.*
+Struktur data **Stack** dan **Queue** dipilih untuk diimplementasikan menggunakan **Linked List**, sebab ukuran Linked List tidak terbatas selama memori masih tersedia. Hal ini sesuai dengan konsep antrean bank, karena banyaknya antrean dalam bank tidak dapat ditentukan. Sehingga akan sangat tidak efisien jika diimplementasikan menggunakan array. Oleh karena itu, **Linked List menjadi solusi yang sangat cocok dalam program ini.**
 
 ---
 
@@ -99,34 +101,34 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
 
 ➊ Kendala dalam Pengelolaan Antrean (Queue)
 
-   - 💡*Masalah:*
+   - 💡**Masalah:**
      
       Nasabah yang telah selesai diproses dihapus dari antrean, tetapi data nasabah yang telah diproses tidak tersimpan.
       Tidak ada mekanisme untuk membatalkan proses nasabah yang sudah dikeluarkan dari antrean.
      
-   - ✅ *Solusi:*
+   - ✅ **Solusi:**
      
       Implementasi Stack (Riwayat Layanan) untuk menyimpan nasabah yang telah diproses.
       Menambahkan fitur Undo Transaksi menggunakan pop() untuk memungkinkan pembatalan transaksi dan mengembalikan nasabah ke antrean utama.
 
 ➋ Kendala dalam Alokasi Memori
 
-   - 💡 *Masalah:*
+   - 💡 **Masalah:**
      
       Karena menggunakan linked list, jika tidak dikelola dengan baik, memori bisa bocor (memory leak) akibat node yang tidak dibebaskan setelah digunakan.
      
-   - ✅ *Solusi:*
+   - ✅ **Solusi:**
      
       Menggunakan free() untuk menghapus node setelah nasabah dikeluarkan dari antrean atau stack.
       Menambahkan fungsi clearQueue() dan clearStack() untuk membersihkan semua node sebelum program berakhir.
 
 ➌ Menampilkan Riwayat dalam Urutan Kronologis
 
-   - 💡 *Masalah:*
+   - 💡 **Masalah:**
      
       Riwayat transaksi disimpan dalam stack yang bersifat LIFO (Last-In-First-Out), sehingga urutan tampil terbalik (terbaru ke terlama).
      
-   - ✅ *Solusi:*
+   - ✅ **Solusi:**
      
       Gunakan stack sementara untuk membalikkan urutan:
      
@@ -138,12 +140,12 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
 
 ➍ Sinkronisasi Antrean dan Riwayat
 
-   - 💡 *Masalah:*
+   - 💡 **Masalah:**
      
       Setelah undo, nomor antrean bisa menjadi tidak berurutan.
       Data harus tetap sinkron antara antrean (nasabah aktif) dan stack (riwayat layanan).
      
-   - ✅ *Solusi:*
+   - ✅ **Solusi:**
      
       Gunakan renumberQueue untuk memastikan nomor antrean tetap berurutan setelah perubahan.
       Saat nasabah diproses (deQueue), datanya dipindahkan ke stack. Jika undo dilakukan, data diambil dari stack dan dikembalikan ke antrean.
@@ -152,12 +154,12 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
 
 ➎ Penanganan Kesalahan dan Stabilitas Program
 
-   - 💡 *Masalah:*
+   - 💡 **Masalah:**
      
       Program bisa mengalami gagal alokasi memori saat malloc tidak berhasil.
       Operasi yang tidak valid, seperti menghapus antrean kosong, bisa menyebabkan error.
      
-   - ✅ *Solusi:*
+   - ✅ **Solusi:**
      
       Cek hasil alokasi memori (malloc/strdup). Jika gagal, tampilkan pesan error agar pengguna tahu ada masalah.
       Cegah error kritis dengan:
@@ -168,12 +170,12 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
 
  ➏ Validasi Input
 
-   - 💡 *Masalah:*
+   - 💡 **Masalah:**
      
       Input nama nasabah harus hanya berisi huruf dan spasi.
       Kesalahan input pada pilihan menu, seperti memasukkan huruf atau simbol yang tidak valid.
      
-   - ✅ *Solusi:*
+   - ✅ **Solusi:**
      
       Untuk mengatasi masalah ini, program menerapkan fungsi validasi khusus:
      
@@ -185,22 +187,22 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
 
  ➐ Format Antarmuka Pengguna
 
-   - 💡 *Masalah:*
+   - 💡 **Masalah:**
      
       Menampilkan data antrean dan riwayat dalam format tabel yang rapi.
      
-   - ✅ *Solusi:*
+   - ✅ **Solusi:**
      
       Gunakan format printf dengan spesifikasi seperti %-4d (untuk nomor) dan %-50s (untuk nama) untuk merapikan kolom.
       Tambahkan garis pemisah (contoh: ===================) untuk kejelasan visual.
  
  ➑ Kendala dalam Efisiensi Kompilasi dan Eksekusi
  
-   - 💡 *Masalah:*
+   - 💡 **Masalah:**
      
       Setiap kali ingin menjalankan program, pengguna harus mengetik perintah kompilasi yang panjang secara manual.
      
-   - ✅ *Solusi:*
+   - ✅ **Solusi:**
      
      Menggunakan Makefile untuk mempermudah kompilasi hanya dengan menjalankan perintah make, lalu menjalankan program dengan
      sh
@@ -286,6 +288,7 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
   ![Screenshot 2025-03-10 142409](https://github.com/user-attachments/assets/c71e5985-9b23-4f16-b1e7-e6ae2fb7c70f)
 
 ---
+
 ### 📝 Manajemen Memori
 
 - Sebelum program keluar, semua memori yang digunakan untuk menyimpan data nasabah akan dibersihkan secara otomatis. Ini dilakukan untuk mencegah kebocoran memori (memory leak), sehingga sumber 
