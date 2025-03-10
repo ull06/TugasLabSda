@@ -58,3 +58,67 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
 6️⃣ **Keluar dari Program** ❌  
 
 ---
+
+### 📝 Alur Program 
+
+**🌟 Tampilan Awal Program 🌟**
+
+- Saat program dijalankan, pengguna disambut dengan pesan berikut
+
+  ![Screenshot 2025-03-10 131737](https://github.com/user-attachments/assets/83065517-f3a0-4dc9-b04b-34a6fdcbd652)
+
+**🖥️ Antarmuka Program**
+
+- Saat program dijalankan, pengguna akan disambut dengan antarmuka yang sederhana dan informatif. 
+
+  ![Screenshot 2025-03-10 135540](https://github.com/user-attachments/assets/87ee314a-758c-409c-85b7-be7b75bf3f27)
+
+### Pilihan 𝟙 
+
+- Menambahkan nasabah ke daftar antrean
+
+  ![Screenshot 2025-03-10 140504](https://github.com/user-attachments/assets/9a2a9f97-1613-40f3-8d28-274b9c8b3966)
+
+### Pilihan 𝟚 
+
+- Memproses nasabah dalam antrean
+
+  ![Screenshot 2025-03-10 140622](https://github.com/user-attachments/assets/829d85bb-92b1-4de3-ba7d-10c745c77203)
+
+### Pilihan 𝟛 
+
+- Menampilkan antrean saat ini 
+
+  ![Screenshot 2025-03-10 141051](https://github.com/user-attachments/assets/a2e14634-e07b-4576-8434-aa2f3948b64a)
+
+### Pilihan 𝟜
+
+- Menampilkan riwayat layanan nasabah
+
+  ![Screenshot 2025-03-10 141716](https://github.com/user-attachments/assets/b9e0ec2f-814c-4de0-995c-98211f58082c)
+
+### Pilihan 𝟝
+
+- Membatalkan transaksi terakhir nasabah
+
+  ![Screenshot 2025-03-10 141832](https://github.com/user-attachments/assets/1a81c87f-4637-48a2-a572-916aa4e97359)
+
+### Pilihan 𝟞
+
+- Keluar dari program 
+
+  ![Screenshot 2025-03-10 142231](https://github.com/user-attachments/assets/2d0623ac-44d3-4760-b10a-84547c047b6f)
+
+### 🎉 Pesan Penutup Program
+
+- Saat pengguna memilih keluar dari sistem, program akan menampilkan pesan perpisahan yang hangat
+
+  ![Screenshot 2025-03-10 142409](https://github.com/user-attachments/assets/c71e5985-9b23-4f16-b1e7-e6ae2fb7c70f)
+
+---
+### 📝 Manajemen Memori
+
+- Sebelum program keluar, semua memori yang digunakan untuk menyimpan data nasabah akan dibersihkan secara otomatis. Ini dilakukan untuk mencegah kebocoran memori (memory leak), sehingga sumber 
+  daya komputer tetap optimal dan tidak ada memori yang terbuang sia-sia.
+  
+---
