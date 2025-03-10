@@ -93,6 +93,59 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
    - Nasabah pertama yang diproses akan ditampilkan lebih dahulu.
    - Jika tidak ada nasabah yang telah dilayani, sistem akan menampilkan pesan **"Riwayat kosong"**.
 
+
+### 🔍 Kendala dan Solusi dalam Program Antrean Bank:
+
+➊ Kendala dalam Pengelolaan Antrean (Queue)
+
+   - 💡*Masalah:*
+     
+      Nasabah yang telah selesai diproses dihapus dari antrean, tetapi data nasabah yang telah diproses tidak tersimpan.
+      Tidak ada mekanisme untuk membatalkan proses nasabah yang sudah dikeluarkan dari antrean.
+     
+   - ✅ *Solusi:*
+     
+      Implementasi Stack (Riwayat Layanan) untuk menyimpan nasabah yang telah diproses.
+      Menambahkan fitur Undo Transaksi menggunakan pop() untuk memungkinkan pembatalan transaksi dan mengembalikan nasabah ke antrean utama.
+
+➋ Kendala dalam Alokasi Memori
+
+   - 💡 *Masalah:*
+     
+      Karena menggunakan linked list, jika tidak dikelola dengan baik, memori bisa bocor (memory leak) akibat node yang tidak dibebaskan setelah digunakan.
+     
+   - ✅ *Solusi:*
+     
+      Menggunakan free() untuk menghapus node setelah nasabah dikeluarkan dari antrean atau stack.
+      Menambahkan fungsi clearQueue() dan clearStack() untuk membersihkan semua node sebelum program berakhir.
+
+➌ Menampilkan Riwayat dalam Urutan Kronologis
+
+   - 💡 *Masalah:*
+     
+      Riwayat transaksi disimpan dalam stack yang bersifat LIFO (Last-In-First-Out), sehingga urutan tampil terbalik (terbaru ke terlama).
+     
+   - ✅ *Solusi:*
+     
+      Gunakan stack sementara untuk membalikkan urutan:
+     
+      1️⃣ Pindahkan semua data dari stack utama ke stack sementara.
+     
+      2️⃣ Tampilkan data dari stack sementara, yang kini dalam urutan kronologis.
+     
+      3️⃣ Kembalikan data ke stack utama agar tidak mengubah struktur aslinya.
+
+➍ Sinkronisasi Antrean dan Riwayat
+
+   - 💡 *Masalah:*
+     
+      Setelah undo, nomor antrean bisa menjadi tidak berurutan.
+      Data harus tetap sinkron antara antrean (nasabah aktif) dan stack (riwayat layanan).
+     
+   - ✅ *Solusi:*
+     
+      Gunakan renumberQueue untuk memastikan nomor antrean tetap berurutan setelah perubahan.
+      Saat nasabah diproses (deQueue), datanya dipindahkan ke stack. Jika undo dilakukan, data diambil dari stack dan dikembalikan ke antrean.
 ---
 
 ### 🛠️ Fitur Utama:
