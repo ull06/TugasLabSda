@@ -19,6 +19,7 @@
 Program ini adalah sitem manajemen antrean nasabah di bank yang menggunakan queue berbasis linked list untuk mengelola antrean layanan, serta stack berbasis linked list untuk menyimpan riwayat transaksi nasabah yang telah di proses.
 
 ---
+
 ### 📌 Instruksi Kompilasi dan Cara Menjalankan Program:
 
 Program ini menggunakan *Makefile* untuk mempermudah proses kompilasi dan eksekusi.
@@ -37,10 +38,29 @@ Program ini menggunakan *Makefile* untuk mempermudah proses kompilasi dan ekseku
   
 ---
 
+### 🏦 Struktur Data yang Digunakan untuk Membangun Program Antrean Bank:
 
+🔹 *Queue berbasis Linked List* 🔗
+   - Program ini menggunakan *Queue berbasis Linked List* untuk menyimpan data antrean nasabah yang sedang menunggu untuk diproses.
+   - Queue mengikuti prinsip *FIFO (First In, First Out)*, sehingga nasabah yang pertama masuk akan diproses lebih dahulu.
 
+🔹 *Stack berbasis Linked List* 🔗
+   - Selain antrean, program ini juga menggunakan *Stack berbasis Linked List* untuk menyimpan transaksi nasabah yang telah diproses.
+   - Stack mengikuti prinsip *LIFO (Last In, First Out)*, sehingga transaksi terakhir yang diproses akan berada di bagian atas dan bisa dibatalkan jika diperlukan.
+  
+---
 
+### 🤔 Alasan Pemilihan Struktur Data:
 
+Queue dan Stack diimplementasikan menggunakan *Linked List* karena:
+
+✅ *Fleksibel* – Tidak memiliki batasan ukuran seperti array, cocok untuk antrean yang jumlahnya tidak dapat diprediksi.  
+✅ *Efisien dalam penambahan & penghapusan* – Operasi enqueue, dequeue, push, dan pop dapat dilakukan dalam *O(1)* waktu tanpa perlu menggeser elemen seperti pada array.  
+✅ *Cocok untuk sistem antrean bank* – Karena jumlah nasabah yang antre bisa terus bertambah atau berkurang, sehingga penggunaan memori lebih efisien.  
+
+Struktur data *Stack* dan *Queue* dipilih untuk diimplementasikan menggunakan *Linked List, sebab ukuran Linked List tidak terbatas selama memori masih tersedia. Hal ini sesuai dengan konsep antrean bank, karena banyaknya antrean dalam bank tidak dapat ditentukan. Sehingga akan sangat tidak efisien jika diimplementasikan menggunakan array. Oleh karena itu, **Linked List menjadi solusi yang sangat cocok dalam program ini.*
+
+---
 
 ### ⚙️ Implementasi Struktur Data:
 
