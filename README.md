@@ -193,7 +193,7 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
      
    - ✅ **Solusi:**
      
-      Gunakan format printf dengan spesifikasi seperti %-4d (untuk nomor) dan %-50s (untuk nama) untuk merapikan kolom.
+      Gunakan format printf dengan spesifikasi seperti %-4d (untuk nomor) , %-50s (untuk nama) dan %-20s (untuk layanan) untuk merapikan kolom.
       Tambahkan garis pemisah (contoh: ===================) untuk kejelasan visual.
  
  ➑ Kendala dalam Efisiensi Kompilasi dan Eksekusi
@@ -204,10 +204,10 @@ Dalam program antrean nasabah, **Stack** diimplementasikan untuk melakukan beber
      
    - ✅ **Solusi:**
      
-     Menggunakan Makefile untuk mempermudah kompilasi hanya dengan menjalankan perintah make, lalu menjalankan program dengan
-     sh
+     Menggunakan Makefile untuk mempermudah kompilasi hanya dengan menjalankan perintah Make, lalu menjalankan program dengan
+     ```sh
      ./mainSda
-     
+     ```
 ---
 
 ### 🛠️ Fitur Utama:
