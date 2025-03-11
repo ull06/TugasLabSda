@@ -14,7 +14,7 @@ int main(){
 
     initStack(&stack); //inisialisasi stack
 
-    //
+    // Pembuka program
     printf("\n||=====================================||\n");
     printf("||     SELAMAT DATANG DI BANK KAMI!    ||\n");
     printf("|| ====================================||\n");
@@ -25,6 +25,7 @@ int main(){
 
     menuUser(&queueu, &stack);
 
+    // Penutup program
     printf("\n||=========================================||\n");
     printf("||      TERIMA KASIH TELAH BERKUNJUNG!     ||\n");
     printf("||=========================================||\n");
