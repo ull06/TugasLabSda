@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
-#include "header.h"
+#include "headerSda.h"
 
 
 // fungsi untuk inisialisasi queueu
@@ -79,6 +79,73 @@ bool inQueue(Queue *queue, const char *Nama, const char *Layanan){
     }
     queue->size++; // ukuran antrean bertambah
     return true;
+}
+
+// fungsi untuk menambahkan data ke stack riwayat layanan)
+bool push(Stack *stack, const char *nama, const char *layanan){
+    StackNodePtr newNode;
+    newNode = malloc(sizeof(StackNode));
+    if (newNode == NULL){
+        printf("Error: Gagal mengalokasikan memori untuk stack!\n");
+        return false;
+    }
+
+    //menyalin data ke string
+    newNode->nama = strdup(nama);
+    newNode->layanan = strdup(layanan);
+
+    //mengecek apakah strdup berhasil
+    if (newNode->nama == NULL || newNode->layanan == NULL){
+        printf("Error: Gagal mengalokasikan memori untuk string\n");
+        if (newNode->nama)
+            free(newNode->nama); // hanya bebaskan jika tidak NULL
+        if (newNode->layanan)
+            free(newNode->layanan);
+        free(newNode);
+        return false;
+    }
+
+    // gunakan nomor antrean berdasarkan size saat ini
+    // menggunakan ternari operator
+    newNode->no = (stack->size == 0) ? 1 : stack->top->no + 1;
+    newNode->next = stack->top;
+    stack->top = newNode;
+    stack->size++;
+    printf("Nasabah %s - %s telah ditambahkan ke riwayat.\n", nama, layanan);
+
+    return true; // jika push berhasil
+}
+
+
+// fungsi untuk memproses nasabah (menghapus dari antrean) dan memindahkannya ke stack
+void deQueue(Queue *queue, Stack *stack){
+    if (isEmpty(queue)){
+        printf("Antrean kosong! Tidak ada nasabah untuk diproses.\n\n");
+        return;
+    }
+    
+    Node *temp = queue->front;
+    printf("Memproses nasabah: %s - %s\n", temp->Nama, temp->Layanan);
+    printf("Layanan selesai diproses dan dipindahkan ke riwayat.\n\n");
+    
+    // coba pindahkan nasabah ke stack(riwayat layanan)
+    if (push(stack, temp->Nama, temp->Layanan)){
+
+        // jika push berhasil hapus nasabah dari queue
+        queue->front = queue->front->next;
+        // jika queue menjadi kosong setelah pengaahpusan
+        // set rear ke NULL
+        if (queue->front == NULL){
+            queue->rear = NULL;
+        }
+        // membebaskan memori yang di hapus
+        free(temp->Nama); // membebaskan string yang dialokasikan
+        free(temp->Layanan);
+        free(temp);    // membebaskan node
+        queue->size--; // ukuran queuu berkurang
+    }else{
+        printf("Gagal memindahkan nasabah ke riwayat.\n");
+    }
 }
 
 // fungsi untuk menghapus nasabah dari transaksi
@@ -239,7 +306,6 @@ void tampilkanAntrean(Queue *queue){
     printf("====================================================================================\n");
     printf("Total Nasabah Dalam Antrean: %d\n", queue->size);
 
-    
 }
 
 // fungsi untuk memvalidasi apakah string hanya terdiri dari huruf dan spasi
